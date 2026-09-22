@@ -1,65 +1,70 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: #f7f4ff;
-    color: #333;
+    background: #f8f5ff;
+    color: #292533;
     line-height: 1.6;
 }
 
 /* Navigation */
 
 nav {
-    background: white;
-    padding: 18px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
 }
 
 nav h2 {
-    color: #6c4ab6;
+    color: #7048b8;
+}
+
+nav div {
+    display: flex;
+    gap: 20px;
 }
 
 nav a {
+    color: #292533;
     text-decoration: none;
-    color: #333;
-    margin-left: 20px;
     font-weight: bold;
 }
 
 nav a:hover {
-    color: #6c4ab6;
+    color: #7048b8;
 }
 
 /* Hero */
 
 .hero {
     min-height: 90vh;
+    padding: 100px 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 10%;
 }
 
-.hero p:first-child {
-    color: #6c4ab6;
+.intro {
+    color: #7048b8;
+    font-size: 20px;
     font-weight: bold;
 }
 
 .hero h1 {
-    font-size: 55px;
-    color: #6c4ab6;
-    margin: 10px 0;
+    font-size: 58px;
+    color: #7048b8;
+    margin: 8px 0;
 }
 
 .hero h2 {
@@ -67,7 +72,7 @@ nav a:hover {
     margin-bottom: 15px;
 }
 
-.hero p {
+.hero > p:not(.intro) {
     max-width: 600px;
     font-size: 18px;
 }
@@ -79,14 +84,15 @@ nav a:hover {
     width: fit-content;
     margin-top: 25px;
     padding: 12px 25px;
-    background: #6c4ab6;
+    background: #7048b8;
     color: white;
     text-decoration: none;
     border-radius: 25px;
+    transition: 0.3s;
 }
 
 .button:hover {
-    background: #51358f;
+    transform: translateY(-3px);
 }
 
 /* Sections */
@@ -96,9 +102,24 @@ section {
 }
 
 section > h2 {
-    color: #6c4ab6;
-    font-size: 32px;
-    margin-bottom: 25px;
+    font-size: 34px;
+    color: #7048b8;
+    margin-bottom: 30px;
+}
+
+/* About */
+
+.about-card,
+.contact-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    max-width: 800px;
+}
+
+.about-card p {
+    margin-bottom: 15px;
 }
 
 /* Skills */
@@ -111,32 +132,65 @@ section > h2 {
 
 .skills span {
     background: white;
-    padding: 12px 20px;
-    border-radius: 20px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    padding: 13px 22px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    font-weight: bold;
+}
+
+.skills span:hover {
+    transform: translateY(-3px);
 }
 
 /* Projects */
 
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
 .project-card {
     background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
 }
 
 .project-card h3 {
-    color: #6c4ab6;
-    margin-bottom: 10px;
+    color: #7048b8;
+    margin-bottom: 12px;
+}
+
+.tech {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #7048b8;
+}
+
+/* Contact */
+
+.links {
+    display: flex;
+    gap: 15px;
+}
+
+.links .button {
+    margin-top: 15px;
 }
 
 /* Footer */
 
 footer {
     text-align: center;
-    padding: 25px;
+    padding: 30px;
     background: white;
+    margin-top: 30px;
 }
 
 /* Mobile */
@@ -144,17 +198,28 @@ footer {
 @media (max-width: 700px) {
 
     nav {
+        padding: 15px 5%;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+    }
+
+    nav div {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     nav a {
-        margin: 5px;
         font-size: 14px;
     }
 
+    .hero {
+        min-height: 80vh;
+        padding: 70px 7%;
+    }
+
     .hero h1 {
-        font-size: 42px;
+        font-size: 45px;
     }
 
     .hero h2 {
@@ -163,5 +228,13 @@ footer {
 
     section {
         padding: 60px 7%;
+    }
+
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+
+    section > h2 {
+        font-size: 30px;
     }
 }
